@@ -1,7 +1,7 @@
 // Modified from
 // https://github.com/sshaoshuai/Pointnet2.PyTorch/tree/master/pointnet2/src/interpolate.cpp
 
-#include <THC/THC.h>
+// #include <THC/THC.h>
 #include <cuda.h>
 #include <cuda_runtime_api.h>
 #include <math.h>
@@ -12,7 +12,9 @@
 
 #include <vector>
 
-extern THCState *state;
+// extern THCState *state;
+#include <ATen/cuda/CUDAContext.h>
+#include <ATen/cuda/CUDAEvent.h>
 
 void three_nn_wrapper(int b, int n, int m, at::Tensor unknown_tensor,
                       at::Tensor known_tensor, at::Tensor dist2_tensor,
